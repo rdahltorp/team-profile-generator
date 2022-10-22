@@ -52,6 +52,7 @@ const Engineer = require('./utils/Engineer')
 const Intern = require('./utils/Intern')
 const fs = require('fs')
 const inquirer = require('inquirer')
+const generateTeamHTML = require('./utils/generateHTML')
 
 
 //ADDITIONAL FUNCTIONS
@@ -137,7 +138,9 @@ function addTeamMember() {
             } else if (addToTeam.addToTeam === 'Generate team'){
                 console.log('This is your final team:');
                 console.log(teamMembers);
-                //NEED TO UPDATE THIS TO WRITE A FILE USING THE GENERATEHTML.JS
+                let generateMyTeam = generateTeamHTML(teamMembers)
+                fs.writeFile('generatedTeam.html', generateMyTeam, (err) =>
+                err ? console.log(err) : console.log('Success! Your team HTML page has been created.'))
             }
         })
 }
