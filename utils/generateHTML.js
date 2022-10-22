@@ -4,51 +4,65 @@ const Manager = require('./Manager')
 const Engineer = require('./Engineer')
 const Intern = require('./Intern')
 
-function genManager(teamMembers) {
-    teamMembers.forEach(Manager => {
-        return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-        <div class="card-header">MANAGER</div>
-        <div class="card-body">
-        <h5 class="card-title">${Manager.name}</h5>
-        <p class="card-text">Employee ID #: ${Manager.id}</p>
-        <p class="card-text">Office #: ${Manager.managerOffice}</p>
-        <p class="card-text">Email: <a href="mailto:${Manager.email}" class="card-link text-white">${Manager.email}</a></p>
-        </div>
-    </div>`
-        
+
+
+function genManager(data) {
+    data.forEach(member => {
+        if(member.getRole === 'Manager') {
+            return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
+            <div class="card-header">MANAGER</div>
+            <div class="card-body">
+            <h5 class="card-title">${member.name}</h5>
+            <p class="card-text">Employee ID #: ${member.id}</p>
+            <p class="card-text">Office #: ${member.managerOffice}</p>
+            <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+            </div>
+        </div>`
+        } else {
+            return ``
+        }        
     });
 }
 
-function genInt(teamMembers) {
-    teamMembers.forEach(Intern => {
+function genInt(data) {
+    data.forEach(member => {
+        if(member.getRole === 'Intern') {
         return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
         <div class="card-header">MANAGER</div>
         <div class="card-body">
-        <h5 class="card-title">${Intern.name}</h5>
-        <p class="card-text">Employee ID #: ${Intern.id}</p>
-        <p class="card-text">School: ${Intern.school}</p>
-        <p class="card-text">Email: <a href="mailto:${Intern.email}" class="card-link text-white">${Intern.email}</a></p>
+        <h5 class="card-title">${member.name}</h5>
+        <p class="card-text">Employee ID #: ${member.id}</p>
+        <p class="card-text">School: ${member.school}</p>
+        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
         </div>
     </div>` 
+        } else {
+            return ``
+        }        
     });
 }
 
-function genEng(teamMembers) {
-    teamMembers.forEach(Engineer => {
+function genEng(data) {
+    data.forEach(member => {
+        if(member.getRole === 'Engineer') {
         return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
         <div class="card-header">MANAGER</div>
         <div class="card-body">
-        <h5 class="card-title">${Engineer.name}</h5>
-        <p class="card-text">Employee ID #: ${Engineer.id}</p>
-        <p class="card-text">GitHub username: <a href="https://github.com/${Engineer.gitHub}" class="card-link text-black" target="_blank">${Engineer.gitHub}</a></p>
-        <p class="card-text">Email: <a href="mailto:${Engineer.email}" class="card-link text-white">${Engineer.email}</a></p>
+        <h5 class="card-title">${member.name}</h5>
+        <p class="card-text">Employee ID #: ${member.id}</p>
+        <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
+        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
         </div>
     </div>` 
+        } else {
+            return ``
+        }        
     });
 }
 
 //Function that builds the HTML
-function generateTeamHTML(teamMembers) {
+function generateHTML(data) {
+    
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -66,21 +80,21 @@ function generateTeamHTML(teamMembers) {
         <main>
             <!-- Manager card section -->
             <div class="managerZone d-flex row justify-content-evenly">
-                ${genManager(teamMembers)}
+                ${genManager(data)}
             </div>
     
             <!-- Engineer Card temp and section -->
             <div class="engZone d-flex row justify-content-evenly">
-                ${genEng(teamMembers)}
+                ${genEng(data)}
             </div>
     
             <!-- Intern Card temp and section -->
             <div class="intZone d-flex row justify-content-evenly">
-                ${genInt(teamMembers)}
+                ${genInt(data)}
             </div>
         </main>
     </body>
     </html>`
 }
 
-module.exports = generateTeamHTML
+module.exports = generateHTML

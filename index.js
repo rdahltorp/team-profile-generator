@@ -1,48 +1,9 @@
 /* Psudo code outline 
 
-Step 1: Init + Manager questions
-- Once app fires, trigger the questions on the Manager.js page. 
-- Once answered, responses are pulled and added to a generateHTML.js file.
-
-Step 2: Menu of additional options
-- Once manager questions complete render a menu with 3 options: 
----1) Add engineer 
----2) Add intern
----3) Finish team/exit
-
-Step 3a: "Add engineer" selected
-- If first option is selected, fire the questions on Engineer.js page. 
-- Once answered, responses are pulled and added to the generateHTML.js file.
-- Return to menu (step 2)
-
-Step 3b: "Add intern" selected
-- If second option is selected, fire the questions on Intern.js page. 
-- Once answered, responses are pulled and added to the generateHTML.js file.
-- Return to menu (step 2)
-
-Step 3c: "Finish team/exit" selected
-- If third option is selected, log a message saying "team roster complete"; fire generateHTML.js file.
-- End application.
-
-///////////////////////////////
-
-Page layout: 
--index.js 
----Holds the main code and navigation, along with the menu and exit code
-
--Manager.js, Intern.js, Engineer.js 
----Holds the questions for each of the specific roles.
----Exports to generateHTML
-
--generateHTML.js
----Holds the HTML code that will be created in temp literal.
----Writes the new file. 
-
-/////////////////////////////
-
-Remaining questions 
--What does the "employee.test.js" do that was recommened?
+Remaining questions / things to do
+-Need to write tests
 -When installing Jest, do we need to install as dependancy or dev dependancy?
+-When I try to log the info from 
 
 */
 
@@ -52,7 +13,7 @@ const Engineer = require('./utils/Engineer')
 const Intern = require('./utils/Intern')
 const fs = require('fs')
 const inquirer = require('inquirer')
-const generateTeamHTML = require('./utils/generateHTML')
+const generateHTML = require('./utils/generateHTML')
 
 
 //ADDITIONAL FUNCTIONS
@@ -84,7 +45,6 @@ function engineerQs() {
         .then((engineerResponse => {
             let newEng = new Engineer(engineerResponse.name, engineerResponse.id, engineerResponse.email, engineerResponse.gitHub);
             teamMembers.push(newEng);
-            console.log(teamMembers);
             addTeamMember();       
         }))
 }
@@ -116,7 +76,6 @@ function internQs() {
         .then((internResponse => {
             let newIntern = new Intern(internResponse.name, internResponse.id, internResponse.email, internResponse.school);
             teamMembers.push(newIntern);
-            console.log(teamMembers);
             addTeamMember();
         }))
 }
@@ -136,13 +95,21 @@ function addTeamMember() {
             } else if(addToTeam.addToTeam === 'Add intern') {
                 internQs()
             } else if (addToTeam.addToTeam === 'Generate team'){
-                console.log('This is your final team:');
-                console.log(teamMembers);
-                let generateMyTeam = generateTeamHTML(teamMembers)
-                fs.writeFile('generatedTeam.html', generateMyTeam, (err) =>
-                err ? console.log(err) : console.log('Success! Your team HTML page has been created.'))
+                //console.log(teamMembers);
+                renderHTML()
             }
         })
+}
+
+//Generates HTML
+function renderHTML() {
+    let generateMyTeam = generateHTML(teamMembers)
+    console.log(generateMyTeam);
+    //ISSUE I AM FACING - THE CODE ABOVE RETURNS UNDEFINED FOR EACH EMPLOYEE SECTION AND UNSURE WHY
+
+    //THE CODE BELOW WRITES A NEW DOC> TESTING CODE FIRST IN LOG BEFORE IMPLEMENTING
+    // fs.writeFile('generatedTeam.html', generateMyTeam, (err) =>
+    // err ? console.log(err) : console.log('Success! Your team HTML page has been created.'))
 }
 
 
@@ -175,6 +142,5 @@ inquirer
     .then((managerResponse => {
         let teamManager = new Manager(managerResponse.name, managerResponse.id, managerResponse.email, managerResponse.managerOffice)
         teamMembers.push(teamManager)
-        console.log(teamMembers);
         addTeamMember()
     }))
