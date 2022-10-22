@@ -15,6 +15,8 @@ const fs = require('fs')
 const inquirer = require('inquirer')
 const generateHTML = require('./utils/generateHTML')
 
+//ARRAY OF TEAM MEMBERS
+let teamMembers = [];
 
 //ADDITIONAL FUNCTIONS
 
@@ -111,10 +113,6 @@ function renderHTML() {
     // fs.writeFile('generatedTeam.html', generateMyTeam, (err) =>
     // err ? console.log(err) : console.log('Success! Your team HTML page has been created.'))
 }
-
-
-//ARRAY OF TEAM MEMBERS
-let teamMembers = [];
 
 
 //INITIAL MANAGER QUESTION SET & START OF PROGRAM

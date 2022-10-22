@@ -7,62 +7,123 @@ const Intern = require('./Intern')
 
 
 function genManager(data) {
+    // data.forEach(data => {
+    //     if(data.getRole() === 'Manager') {
+    //         return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
+    //         <div class="card-header">MANAGER</div>
+    //         <div class="card-body">
+    //         <h5 class="card-title">${data.name}</h5>
+    //         <p class="card-text">Employee ID #: ${data.id}</p>
+    //         <p class="card-text">Office #: ${data.managerOffice}</p>
+    //         <p class="card-text">Email: <a href="mailto:${data.email}" class="card-link text-white">${data.email}</a></p>
+    //         </div>
+    //     </div>`
+    //     } else {
+    //         return ``
+    //     }        
+    // });
+
+    let managerHTML=""
     data.forEach(member => {
-        if(member.getRole === 'Manager') {
-            return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
+        if(member.getRole() === 'Manager') {
+        managerHTML += `            
+        <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
             <div class="card-header">MANAGER</div>
             <div class="card-body">
-            <h5 class="card-title">${member.name}</h5>
-            <p class="card-text">Employee ID #: ${member.id}</p>
-            <p class="card-text">Office #: ${member.managerOffice}</p>
-            <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+                <h5 class="card-title">${member.name}</h5>
+                <p class="card-text">Employee ID #: ${member.id}</p>
+                <p class="card-text">Office #: ${member.managerOffice}</p>
+                <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
             </div>
-        </div>`
-        } else {
-            return ``
-        }        
+            </div>
+        </div>` 
+        }
     });
+    return managerHTML
 }
 
 function genInt(data) {
+    // data.forEach(member => {
+    //     if(member.getRole() === 'Intern') {
+    //     return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
+    //     <div class="card-header">INTERN</div>
+    //     <div class="card-body">
+    //     <h5 class="card-title">${member.name}</h5>
+    //     <p class="card-text">Employee ID #: ${member.id}</p>
+    //     <p class="card-text">School: ${member.school}</p>
+    //     <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+    //     </div>
+    // </div>` 
+    //     } else {
+    //         return ``
+    //     }        
+    // });
+
+    let IntHTML=""
     data.forEach(member => {
-        if(member.getRole === 'Intern') {
-        return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-        <div class="card-header">MANAGER</div>
-        <div class="card-body">
-        <h5 class="card-title">${member.name}</h5>
-        <p class="card-text">Employee ID #: ${member.id}</p>
-        <p class="card-text">School: ${member.school}</p>
-        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-        </div>
-    </div>` 
-        } else {
-            return ``
-        }        
+        if(member.getRole() === 'Intern') {
+        IntHTML += `            
+        <div class="card text-bg-warning mb-3 col-4" style="max-width: 18rem;">
+            <div class="card-header">INTERN</div>
+            <div class="card-body">
+                <h5 class="card-title">${member.name}</h5>
+                <p class="card-text">Employee ID #: ${member.id}</p>
+                <p class="card-text">School: ${member.school}</p>
+                <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+            </div>
+            </div>
+        </div>` 
+        }
     });
+    return IntHTML
 }
 
 function genEng(data) {
+    // data.forEach(member => {
+    //     if(member.getRole === 'Engineer') {
+    //     return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
+    //     <div class="card-header">MANAGER</div>
+    //     <div class="card-body">
+    //     <h5 class="card-title">${member.name}</h5>
+    //     <p class="card-text">Employee ID #: ${member.id}</p>
+    //     <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
+    //     <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+    //     </div>
+    // </div>` 
+    //     } else {
+    //         return ``
+    //     }        
+    // });
+
+    let engHTML=""
     data.forEach(member => {
-        if(member.getRole === 'Engineer') {
-        return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-        <div class="card-header">MANAGER</div>
-        <div class="card-body">
-        <h5 class="card-title">${member.name}</h5>
-        <p class="card-text">Employee ID #: ${member.id}</p>
-        <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
-        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-        </div>
-    </div>` 
-        } else {
-            return ``
-        }        
+        if(member.getRole() === 'Engineer') {
+        engHTML += `            
+        <div class="card text-bg-info mb-3 col-4" style="max-width: 18rem;">
+            <div class="card-header">ENGINEER</div>
+            <div class="card-body">
+                <h5 class="card-title">${member.name}</h5>
+                <p class="card-text">Employee ID #: ${member.id}</p>
+                <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
+                <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+            </div>
+            </div>
+        </div>` 
+        }
     });
+    return engHTML
+
 }
 
 //Function that builds the HTML
 function generateHTML(data) {
-    
+    let mgrHTML = genManager(data)
+    let engHTML = genEng(data)
+    let intHTML = genInt(data)
+
+
+    //console.log(`Hello my name is ${data[0].name}, my office number is ${data[0].managerOffice} and I am the ${data[0].getRole}`);
+
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -80,17 +141,17 @@ function generateHTML(data) {
         <main>
             <!-- Manager card section -->
             <div class="managerZone d-flex row justify-content-evenly">
-                ${genManager(data)}
+                ${mgrHTML}
             </div>
     
             <!-- Engineer Card temp and section -->
             <div class="engZone d-flex row justify-content-evenly">
-                ${genEng(data)}
+                ${engHTML}
             </div>
     
             <!-- Intern Card temp and section -->
             <div class="intZone d-flex row justify-content-evenly">
-                ${genInt(data)}
+                ${intHTML}
             </div>
         </main>
     </body>
