@@ -1,3 +1,21 @@
+//This is where the constructor will go for the Engineer class
+const Employee = require('./Employee')
+
+class Manager extends Employee {
+    constructor(name, id, email, managerOffice) {
+        super(name, id, email);
+        this.managerOffice = managerOffice;
+    };
+    getOfficeNumber() {
+        return this.managerOffice;
+    };
+    getRole() {
+        return 'Manager';
+    };
+}
+
+module.exports = Manager;
+
 //This is where the questions go for the manager & we will export the responses to generateHTML.js
 
 const inquirer = require('inquirer')
