@@ -1,10 +1,7 @@
-//This page will generate the HTML doc using temp literal and write the file. 
-
-const Manager = require('./Manager')
-const Engineer = require('./Engineer')
-const Intern = require('./Intern')
-
-
+//This page generates the HTML doc using temp literal. 
+//Questions for tutor: 
+//1) Why does my formating not work correctly when I have 2+ engineers or interns? The second + card for each employee type gets placed outside of the container div. 
+//2) Why did my original code not work for the dynamically inserted html functions?
 
 function genManager(data) {
     // data.forEach(data => {
@@ -26,17 +23,18 @@ function genManager(data) {
     let managerHTML=""
     data.forEach(member => {
         if(member.getRole() === 'Manager') {
-        managerHTML += `            
-        <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-            <div class="card-header">MANAGER</div>
-            <div class="card-body">
-                <h5 class="card-title">${member.name}</h5>
-                <p class="card-text">Employee ID #: ${member.id}</p>
-                <p class="card-text">Office #: ${member.managerOffice}</p>
-                <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-            </div>
-            </div>
-        </div>` 
+        managerHTML += 
+        `<div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
+                    <div class="card-header">MANAGER</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${member.name}</h5>
+                        <p class="card-text">Employee ID #: ${member.id}</p>
+                        <p class="card-text">Office #: ${member.managerOffice}</p>
+                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+                    </div>
+                    </div>
+                </div>
+                ` 
         }
     });
     return managerHTML
@@ -62,17 +60,18 @@ function genInt(data) {
     let IntHTML=""
     data.forEach(member => {
         if(member.getRole() === 'Intern') {
-        IntHTML += `            
-        <div class="card text-bg-warning mb-3 col-4" style="max-width: 18rem;">
-            <div class="card-header">INTERN</div>
-            <div class="card-body">
-                <h5 class="card-title">${member.name}</h5>
-                <p class="card-text">Employee ID #: ${member.id}</p>
-                <p class="card-text">School: ${member.school}</p>
-                <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-            </div>
-            </div>
-        </div>` 
+        IntHTML += 
+        `<div class="card text-bg-warning mb-3 col-4" style="max-width: 18rem;">
+                    <div class="card-header">INTERN</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${member.name}</h5>
+                        <p class="card-text">Employee ID #: ${member.id}</p>
+                        <p class="card-text">School: ${member.school}</p>
+                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+                    </div>
+                    </div>
+                </div>
+                ` 
         }
     });
     return IntHTML
@@ -98,17 +97,18 @@ function genEng(data) {
     let engHTML=""
     data.forEach(member => {
         if(member.getRole() === 'Engineer') {
-        engHTML += `            
-        <div class="card text-bg-info mb-3 col-4" style="max-width: 18rem;">
-            <div class="card-header">ENGINEER</div>
-            <div class="card-body">
-                <h5 class="card-title">${member.name}</h5>
-                <p class="card-text">Employee ID #: ${member.id}</p>
-                <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
-                <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-            </div>
-            </div>
-        </div>` 
+        engHTML += 
+        `<div class="card text-bg-info mb-3 col-4" style="max-width: 18rem;">
+                    <div class="card-header">ENGINEER</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${member.name}</h5>
+                        <p class="card-text">Employee ID #: ${member.id}</p>
+                        <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
+                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+                    </div>
+                    </div>
+                </div>
+                `
         }
     });
     return engHTML
@@ -141,21 +141,27 @@ function generateHTML(data) {
         <main>
             <!-- Manager card section -->
             <div class="managerZone d-flex row justify-content-evenly">
+
                 ${mgrHTML}
+                
             </div>
     
             <!-- Engineer Card temp and section -->
             <div class="engZone d-flex row justify-content-evenly">
+
                 ${engHTML}
+
             </div>
     
             <!-- Intern Card temp and section -->
             <div class="intZone d-flex row justify-content-evenly">
+
                 ${intHTML}
+
             </div>
         </main>
     </body>
-    </html>`
+</html>`
 }
 
 module.exports = generateHTML

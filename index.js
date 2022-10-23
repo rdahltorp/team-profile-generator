@@ -3,7 +3,7 @@
 Remaining questions / things to do
 -Need to write tests
 -When installing Jest, do we need to install as dependancy or dev dependancy?
--When I try to log the info from 
+-FIX HOW THE HTML IS POPULATING, IT IS LOOKING ALL WEIRD NOW AND NOT DOING THE THINGS IT SHOULD WHEN MORE THAN ONE EMPLOYEE TYPE IS ADDED
 
 */
 
@@ -107,7 +107,6 @@ function addTeamMember() {
 function renderHTML() {
     let generateMyTeam = generateHTML(teamMembers)
     console.log(generateMyTeam);
-    //ISSUE I AM FACING - THE CODE ABOVE RETURNS UNDEFINED FOR EACH EMPLOYEE SECTION AND UNSURE WHY
 
     //THE CODE BELOW WRITES A NEW DOC> TESTING CODE FIRST IN LOG BEFORE IMPLEMENTING
     // fs.writeFile('generatedTeam.html', generateMyTeam, (err) =>
