@@ -67,7 +67,7 @@ function genInt(data) {
                         <h5 class="card-title">${member.name}</h5>
                         <p class="card-text">Employee ID #: ${member.id}</p>
                         <p class="card-text">School: ${member.school}</p>
-                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-black">${member.email}</a></p>
                     </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@ function genEng(data) {
                         <h5 class="card-title">${member.name}</h5>
                         <p class="card-text">Employee ID #: ${member.id}</p>
                         <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
-                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
+                        <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-black">${member.email}</a></p>
                     </div>
                     </div>
                 </div>
