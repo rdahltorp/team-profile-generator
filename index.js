@@ -1,12 +1,3 @@
-/* Psudo code outline 
-
-Remaining questions / things to do
--Need to write tests
--When installing Jest, do we need to install as dependancy or dev dependancy?
--FIX HOW THE HTML IS POPULATING, IT IS LOOKING ALL WEIRD NOW AND NOT DOING THE THINGS IT SHOULD WHEN MORE THAN ONE EMPLOYEE TYPE IS ADDED
-
-*/
-
 //PACKAGES
 const Manager = require('./utils/Manager')
 const Engineer = require('./utils/Engineer')
