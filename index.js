@@ -97,9 +97,8 @@ function addTeamMember() {
 //Generates HTML
 function renderHTML() {
     let generateMyTeam = generateHTML(teamMembers)
-    console.log(generateMyTeam);
+    //console.log(generateMyTeam);
 
-    //THE CODE BELOW WRITES A NEW DOC> TESTING CODE FIRST IN LOG BEFORE IMPLEMENTING
     fs.writeFile('./dist/generatedTeam.html', generateMyTeam, (err) =>
     err ? console.log(err) : console.log('Success! Your team HTML page has been created. See the "dist" folder.'))
 }

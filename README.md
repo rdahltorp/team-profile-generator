@@ -14,17 +14,16 @@ To use this code, clone the repo down to your machine and open it via your conso
 
 Once a user has access to the code, they are able to create team profile charts that are easy to read and contain key information.
 
-Below is a demo of the process. For the full video please follow this link: UPDATE WITH NEW LINK!!!
+Below is a demo of the process. For the full video please follow this link: https://drive.google.com/file/d/1qFPqN8Q0Iz0p66OxhOwiDWCdqAXCE0YK/view?usp=sharing
 
-////UPDATE DEMO BELOW WITH NEW DEMO
-![Demo of read me generator.](./assets/images/readme-gen-demo-gif.gif)
+![Demo of read me generator.](./assets/images/team-profile-generator-demo.gif)
 
 
 ## Credits
 
 - Styling for generated HTML pages comes from Bootstrap.
 
-- Testing functionality comes from Jest 
+- Testing functionality comes from Jest. 
 
 ## Tests
 

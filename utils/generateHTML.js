@@ -1,25 +1,5 @@
-//This page generates the HTML doc using temp literal. 
-//Questions for tutor: 
-//1) Why does my formating not work correctly when I have 2+ engineers or interns? The second + card for each employee type gets placed outside of the container div. 
-//2) Why did my original code not work for the dynamically inserted html functions?
-
+//Function that builds Manager HTML
 function genManager(data) {
-    // data.forEach(data => {
-    //     if(data.getRole() === 'Manager') {
-    //         return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-    //         <div class="card-header">MANAGER</div>
-    //         <div class="card-body">
-    //         <h5 class="card-title">${data.name}</h5>
-    //         <p class="card-text">Employee ID #: ${data.id}</p>
-    //         <p class="card-text">Office #: ${data.managerOffice}</p>
-    //         <p class="card-text">Email: <a href="mailto:${data.email}" class="card-link text-white">${data.email}</a></p>
-    //         </div>
-    //     </div>`
-    //     } else {
-    //         return ``
-    //     }        
-    // });
-
     let managerHTML=""
     data.forEach(member => {
         if(member.getRole() === 'Manager') {
@@ -40,23 +20,8 @@ function genManager(data) {
     return managerHTML
 }
 
+//Function that builds Intern HTML
 function genInt(data) {
-    // data.forEach(member => {
-    //     if(member.getRole() === 'Intern') {
-    //     return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-    //     <div class="card-header">INTERN</div>
-    //     <div class="card-body">
-    //     <h5 class="card-title">${member.name}</h5>
-    //     <p class="card-text">Employee ID #: ${member.id}</p>
-    //     <p class="card-text">School: ${member.school}</p>
-    //     <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-    //     </div>
-    // </div>` 
-    //     } else {
-    //         return ``
-    //     }        
-    // });
-
     let IntHTML=""
     data.forEach(member => {
         if(member.getRole() === 'Intern') {
@@ -69,7 +34,6 @@ function genInt(data) {
                         <p class="card-text">School: ${member.school}</p>
                         <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-black">${member.email}</a></p>
                     </div>
-                    </div>
                 </div>
                 ` 
         }
@@ -77,23 +41,8 @@ function genInt(data) {
     return IntHTML
 }
 
+//Function that builds Engineer HTML
 function genEng(data) {
-    // data.forEach(member => {
-    //     if(member.getRole === 'Engineer') {
-    //     return `            <div class="card text-bg-primary mb-3 col-4" style="max-width: 18rem;">
-    //     <div class="card-header">MANAGER</div>
-    //     <div class="card-body">
-    //     <h5 class="card-title">${member.name}</h5>
-    //     <p class="card-text">Employee ID #: ${member.id}</p>
-    //     <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
-    //     <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-white">${member.email}</a></p>
-    //     </div>
-    // </div>` 
-    //     } else {
-    //         return ``
-    //     }        
-    // });
-
     let engHTML=""
     data.forEach(member => {
         if(member.getRole() === 'Engineer') {
@@ -106,23 +55,18 @@ function genEng(data) {
                         <p class="card-text">GitHub username: <a href="https://github.com/${member.gitHub}" class="card-link text-black" target="_blank">${member.gitHub}</a></p>
                         <p class="card-text">Email: <a href="mailto:${member.email}" class="card-link text-black">${member.email}</a></p>
                     </div>
-                    </div>
                 </div>
                 `
         }
     });
     return engHTML
-
 }
 
-//Function that builds the HTML
+//Function that builds the entire HTML
 function generateHTML(data) {
     let mgrHTML = genManager(data)
     let engHTML = genEng(data)
     let intHTML = genInt(data)
-
-
-    //console.log(`Hello my name is ${data[0].name}, my office number is ${data[0].managerOffice} and I am the ${data[0].getRole}`);
 
     return `<!DOCTYPE html>
     <html lang="en">
