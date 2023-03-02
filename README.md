@@ -2,7 +2,7 @@
 
 ## Description
 
-This application allows users to create a structured and styled HTML page that contains members of their team. The HTML doc is constructed through the consile but running index.js in Node and then following the console prompts. Once answered a new team HTML doc will populate with the provided information in specific employee cards. 
+This application allows users to create a structured and styled HTML page that contains members of their team. The HTML doc is constructed through the console by running index.js in Node and then following the console prompts. Once answered a new team HTML doc will populate with the provided information in specific employee cards. 
 
 Developing this application helped give me better insight into how tests work and how to use various classes and extensions of those classes to create objects in the backend.
 
